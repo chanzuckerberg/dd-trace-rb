@@ -18,7 +18,9 @@ module Datadog
 
       module Transport
         module HTTP
-          FORM_FIELD_CHUNK_DATA = 'chunk-data'.freeze
+          URI_TEMPLATE_DD_API = 'https://intake.profile.%s/'.freeze
+
+          FORM_FIELD_DATA = 'data[0]'.freeze
           FORM_FIELD_FORMAT = 'format'.freeze
           FORM_FIELD_FORMAT_PPROF = 'pprof'.freeze
           FORM_FIELD_RECORDING_END = 'recording-end'.freeze
@@ -32,8 +34,8 @@ module Datadog
           FORM_FIELD_TAG_RUNTIME_VERSION = 'runtime_version'.freeze
           FORM_FIELD_TAG_SERVICE = 'service'.freeze
           FORM_FIELD_TAGS = 'tags'.freeze
-          FORM_FIELD_TYPE = 'type'.freeze
-          FORM_FIELD_TYPE_CPU_TIME_WALL_TIME = 'cpu_time+wall_time'.freeze
+          FORM_FIELD_TYPES = 'types'.freeze
+          FORM_FIELD_TYPE_CPU_TIME = 'cpu_time'.freeze
 
           HEADER_CONTENT_TYPE = 'Content-Type'.freeze
           HEADER_CONTENT_TYPE_OCTET_STREAM = 'application/octet-stream'.freeze

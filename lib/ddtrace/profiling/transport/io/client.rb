@@ -7,7 +7,7 @@ module Datadog
   module Profiling
     module Transport
       module IO
-        # Profiling extensions for IO client
+        # IO transport for profiling
         class Client < Datadog::Transport::IO::Client
           include Transport::Client
 

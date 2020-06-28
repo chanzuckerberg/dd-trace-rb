@@ -10,19 +10,21 @@ module Datadog
           attr_reader \
             :hostname,
             :port,
-            :timeout
+            :timeout,
+            :ssl
 
-          DEFAULT_TIMEOUT = 60
+          DEFAULT_TIMEOUT = 30
 
           def initialize(hostname, port, options = {})
             @hostname = hostname
             @port = port
             @timeout = options[:timeout] || DEFAULT_TIMEOUT
+            @ssl = options.key?(:ssl) ? options[:ssl] == true : false
           end
 
           def open
             # Open connection
-            ::Net::HTTP.start(hostname, port, open_timeout: timeout, read_timeout: timeout) do |http|
+            ::Net::HTTP.start(hostname, port, open_timeout: timeout, read_timeout: timeout, use_ssl: ssl) do |http|
               yield(http)
             end
           end
@@ -51,7 +53,6 @@ module Datadog
 
             # Connect and send the request
             http_response = open do |http|
-              # binding.pry
               http.request(post)
             end
 
