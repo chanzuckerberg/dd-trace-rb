@@ -134,7 +134,7 @@ module Datadog
                   "#{FORM_FIELD_TAG_HOST}:#{flush.host}"
                 ],
                 FORM_FIELD_DATA => pprof,
-                'types[0]' => 'cpu-time', # TODO: Replace with dynamic value
+                'types[0]' => 'ruby-cpu', # TODO: Replace with dynamic value
                 FORM_FIELD_RUNTIME => flush.runtime,
                 FORM_FIELD_FORMAT => FORM_FIELD_FORMAT_PPROF
               }
