@@ -67,6 +67,21 @@ module Datadog
             end
           end
 
+          # Although Datadog-Agent has a `remove_stack_traces` option under Agent Trace Obfuscation
+          # PII can still leak via error messages themselves. 
+          # See: https://docs.datadoghq.com/tracing/guide/agent-obfuscation
+          option :filter_exception_msg do |o|
+            o.on_set do |value|
+              Datadog.configuration[:action_pack][:filter_exception_msg] = value || false
+            end
+          end
+
+          option :filter_exception_trace do |o|
+            o.on_set do |value|
+              Datadog.configuration[:action_pack][:filter_exception_trace] = value || false
+            end
+          end
+
           option :middleware, default: true
           option :middleware_names, default: false
           option :template_base_path do |o|

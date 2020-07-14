@@ -19,6 +19,8 @@ module Datadog
 
           option :controller_service
           option :exception_controller
+          option :filter_exception_msg
+          option :filter_exception_trace
           option :service_name, default: Ext::SERVICE_NAME
         end
       end
