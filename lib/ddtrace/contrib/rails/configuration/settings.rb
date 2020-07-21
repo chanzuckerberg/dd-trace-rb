@@ -72,13 +72,15 @@ module Datadog
           # See: https://docs.datadoghq.com/tracing/guide/agent-obfuscation
           option :filter_exception_msg do |o|
             o.on_set do |value|
-              Datadog.configuration[:action_pack][:filter_exception_msg] = value || false
+              o.default { env_to_bool(Ext::FILTER_EXCEPTION_MESSAGE, false) }
+              o.lazy
             end
           end
 
           option :filter_exception_trace do |o|
             o.on_set do |value|
-              Datadog.configuration[:action_pack][:filter_exception_trace] = value || false
+              o.default { env_to_bool(Ext::FILTER_EXCEPTION_TRACE, false) }
+              o.lazy
             end
           end
 
