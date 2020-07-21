@@ -1279,6 +1279,7 @@ Where `options` is an optional `Hash` that accepts the following parameters:
 | --- | ----------- | ------- |
 | `analytics_enabled` | Enable analytics for spans produced by this integration. `true` for on, `nil` to defer to global setting, `false` for off. | `false` |
 | `service_name` | Service name used for `redis` instrumentation | `'redis'` |
+| `filter_redis_command` | Prevent collection of Redis commands (ie. PII in cache keys) | `false` |
 
 You can also set *per-instance* configuration as it follows:
 

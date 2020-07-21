@@ -23,7 +23,12 @@ module Datadog
           command_args = resolve_command_args(command_args)
           return 'AUTH ?' if auth_command?(command_args)
 
-          cmd = command_args.map { |x| format_arg(x) }.join(' ')
+          cmd = if Datadog.configuration[:redis][:filter_redis_command]
+            format_arg(command_args.first) # Only show command type (ie. GET/SET/SETEX). 
+          else
+            command_args.map { |x| format_arg(x) }.join(' ')
+          end
+
           Utils.truncate(cmd, CMD_MAX_LEN, TOO_LONG_MARK)
         end
 

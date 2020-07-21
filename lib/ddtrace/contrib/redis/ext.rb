@@ -6,6 +6,7 @@ module Datadog
         APP = 'redis'.freeze
         ENV_ANALYTICS_ENABLED = 'DD_REDIS_ANALYTICS_ENABLED'.freeze
         ENV_ANALYTICS_SAMPLE_RATE = 'DD_REDIS_ANALYTICS_SAMPLE_RATE'.freeze
+        FILTER_REDIS_COMMAND = 'FILTER_REDIS_COMMAND'.freeze
         METRIC_PIPELINE_LEN = 'redis.pipeline_length'.freeze
         SERVICE_NAME = 'redis'.freeze
         SPAN_COMMAND = 'redis.command'.freeze

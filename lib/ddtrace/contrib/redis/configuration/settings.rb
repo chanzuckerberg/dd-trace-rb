@@ -17,6 +17,12 @@ module Datadog
             o.lazy
           end
 
+          # PII can appear in cache keys 
+          option :filter_redis_command do |o|
+            o.default { env_to_bool(Ext::FILTER_REDIS_COMMAND, false) }
+            o.lazy
+          end
+
           option :service_name, default: Ext::SERVICE_NAME
         end
       end
