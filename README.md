@@ -1,3 +1,7 @@
+# Fork Changes
+- This fork applies a new default of not sending exception messages & traces to Datadog. 
+- (Redis): Makes forwarding commands configurable (ie. `SET {details}` vs. just `SET`)
+
 # Datadog Trace Client
 
 [![CircleCI](https://circleci.com/gh/DataDog/dd-trace-rb/tree/master.svg?style=svg&circle-token=b0bd5ef866ec7f7b018f48731bb495f2d1372cc1)](https://circleci.com/gh/DataDog/dd-trace-rb/tree/master)

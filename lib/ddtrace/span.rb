@@ -146,8 +146,6 @@ module Datadog
 
       @status = Ext::Errors::STATUS
       set_tag(Ext::Errors::TYPE, e.type) unless e.type.empty?
-      set_tag(Ext::Errors::MSG, e.message) unless e.message.empty? || Datadog.configuration[:rails][:filter_exception_message]
-      set_tag(Ext::Errors::STACK, e.backtrace) unless e.backtrace.empty? || Datadog.configuration[:rails][:filter_exception_trace]
     end
 
     # Mark the span finished at the current time and submit it.
