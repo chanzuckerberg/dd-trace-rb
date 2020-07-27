@@ -17,6 +17,12 @@ module Datadog
             o.lazy
           end
 
+          # PII can appear in paths (ie. S3 filename) 
+          option :filter_aws_path do |o|
+            o.default { env_to_bool(Ext::FILTER_AWS_PATH, false) }
+            o.lazy
+          end
+
           option :service_name, default: Ext::SERVICE_NAME
         end
       end

@@ -6,6 +6,7 @@ module Datadog
         APP = 'aws'.freeze
         ENV_ANALYTICS_ENABLED = 'DD_AWS_ANALYTICS_ENABLED'.freeze
         ENV_ANALYTICS_SAMPLE_RATE = 'DD_AWS_ANALYTICS_SAMPLE_RATE'.freeze
+        FILTER_AWS_PATH = 'FILTER_AWS_PATH'.freeze
         SERVICE_NAME = 'aws'.freeze
         SPAN_COMMAND = 'aws.command'.freeze
         TAG_AGENT = 'aws.agent'.freeze
